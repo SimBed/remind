@@ -1,0 +1,12 @@
+<% content_for :title, "Editing birthday" %>
+
+<h1>Editing birthday</h1>
+
+<%= render "form", birthday: @birthday %>
+
+<br>
+
+<div>
+  <%= link_to "Show this birthday", @birthday %> |
+  <%= link_to "Back to birthdays", birthdays_path %>
+</div>

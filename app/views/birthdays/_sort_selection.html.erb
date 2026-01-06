@@ -1,0 +1,12 @@
+<form action="/birthdays" method="GET">
+  <div class="mt-0">
+    <i class="bi bi-sort-alpha-down"></i>
+    <select class="form-control-sm mb-2 sort" name="birthday_sort_option" onchange="this.form.requestSubmit()">
+      <option disabled="disabled" selected="selected" value="">Sort by</option>
+      <option value="first_name" <%="selected" if session[:birthday_sort_option] == "first_name"%> >first name</option>
+      <option value="last_name" <%="selected" if session[:birthday_sort_option] == "last_name"%> >last name</option>
+      <option value="age" <%="selected" if session[:birthday_sort_option] == "age"%> >age</option>
+      <option value="upcoming" <%="selected" if session[:birthday_sort_option] == "upcoming"%> >upcoming birthday</option>
+    </select>
+  </div>
+</form>

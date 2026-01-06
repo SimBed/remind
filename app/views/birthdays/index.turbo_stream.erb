@@ -1,0 +1,7 @@
+<%= turbo_stream.update "birthdays" do %>
+  <%= render partial: "birthdays_table" %>
+<% end %>
+<%= turbo_stream.update "new_birthday" do %>
+  <%= render inline:'' %>
+<% end %>
+<%= turbo_stream.prepend("flash", partial: "layouts/flash") %>

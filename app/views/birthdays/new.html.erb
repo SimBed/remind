@@ -1,0 +1,6 @@
+<% content_for :title, "New league" %>
+<%= turbo_frame_tag @birthday do %>
+  <div class="col-md-6 mb-4">
+    <%= render "form", birthday: @birthday %>
+  </div>
+<% end %>

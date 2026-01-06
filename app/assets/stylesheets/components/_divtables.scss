@@ -1,0 +1,79 @@
+  .container {
+      max-width: 600px;
+      margin: 0 auto;
+  }
+
+  .birthday-table {
+      background: white;
+      color: #764ba2;
+      font-weight: 600;             
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      // .table-header {
+      //     display: flex;
+      //     gap: 10px;
+      //     padding: 15px 10px;
+      //     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      //     border-radius: 15px;
+      //     margin-bottom: 10px;
+      //     font-weight: bold;
+      //     // color: white;
+      //     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      // }
+      .table-row {
+          display: flex;
+          gap: 10px;
+          padding: 15px 10px;
+          background: #f8f9fa;
+          border-radius: 12px;
+          margin-bottom: 8px;
+          transition: all 0.3s ease;
+          align-items: center;
+      }
+    
+      .table-row:hover {
+          transform: translateX(5px);
+          // background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+    
+      .first-name {
+          flex: 2;
+          // font-weight: 600;
+          // color: #667eea;
+      }
+    
+      .last-name {
+          flex: 2;
+          // font-weight: 600;
+          // color: #764ba2;
+      }
+    
+      .birthday {
+          flex: 2;
+          // color: #f5576c;
+          // font-weight: 500;
+      }
+    
+      .function {
+        flex: 1.0;
+      }
+      @media (max-width: 480px) {
+          h1 {
+              font-size: 1.5rem;
+          }
+    
+          .table-header, .table-row {
+              font-size: 0.9rem;
+              padding: 12px 8px;
+          }
+    
+          .birthday-table {
+              padding: 10px;
+          }
+      }
+  }
+
+

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @birthday %>
+
+<div>
+  <%= link_to "Edit this birthday", edit_birthday_path(@birthday) %> |
+  <%= link_to "Back to birthdays", birthdays_path %>
+
+  <%= button_to "Destroy this birthday", @birthday, method: :delete %>
+</div>
