@@ -2,5 +2,5 @@
     <div class="first-name"><%= birthday.first_name %></div>
     <div class="last-name"><%= birthday.last_name %></div>
     <div class="birthday"><%= birthday.date.strftime('%d %b %Y') %></div>
-    <div class="function"><%= link_to image_tag("dustbin.webp", class: "table_icon"), birthday, data: { turbo_method: :delete } %></div>
+    <div class="function"><%= link_to image_tag("dustbin.webp", class: "table_icon", alt: 'Delete Birthday'), birthday, data: { turbo_method: :delete } %></div>
 </div>

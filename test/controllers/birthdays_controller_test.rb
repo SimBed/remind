@@ -2,47 +2,32 @@ require "test_helper"
 
 class BirthdaysControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @birthday = birthdays(:one)
+    @birthday = birthdays(:bob)
   end
 
   test "should get index" do
-    get birthdays_url
+    get birthdays_path
     assert_response :success
   end
 
   test "should get new" do
-    get new_birthday_url
+    get new_birthday_path
     assert_response :success
   end
 
   test "should create birthday" do
     assert_difference("Birthday.count") do
-      post birthdays_url, params: { birthday: { date: @birthday.date, first_name: @birthday.first_name, last_name: @birthday.last_name } }
+      post birthdays_path, params: { birthday: { date: Date.parse("March 14 1992"), first_name: "Sally", last_name: "Kelly" } }
     end
 
-    assert_redirected_to birthday_url(Birthday.last)
-  end
-
-  test "should show birthday" do
-    get birthday_url(@birthday)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_birthday_url(@birthday)
-    assert_response :success
-  end
-
-  test "should update birthday" do
-    patch birthday_url(@birthday), params: { birthday: { date: @birthday.date, first_name: @birthday.first_name, last_name: @birthday.last_name } }
-    assert_redirected_to birthday_url(@birthday)
+    assert_redirected_to birthdays_path
   end
 
   test "should destroy birthday" do
     assert_difference("Birthday.count", -1) do
-      delete birthday_url(@birthday)
+      delete birthday_path(@birthday)
     end
 
-    assert_redirected_to birthdays_url
+    assert_redirected_to birthdays_path
   end
 end
