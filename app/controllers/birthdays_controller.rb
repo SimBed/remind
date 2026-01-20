@@ -1,5 +1,4 @@
 class BirthdaysController < ApplicationController
-  before_action :set_birthday, only: %i[ show edit update destroy ]
   before_action :initialize_sort, only: :index
 
   def index
@@ -8,13 +7,10 @@ class BirthdaysController < ApplicationController
     handle_response
   end
 
-  def show
-  end
   def new
     @birthday = Birthday.new
   end
-  def edit
-  end
+
   def create
     @birthday = Birthday.new(birthday_params)
 
@@ -25,17 +21,9 @@ class BirthdaysController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  def update
-    respond_to do |format|
-      if @birthday.update(birthday_params)
-        format.html { redirect_to @birthday, notice: "Birthday was successfully updated.", status: :see_other }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
-    end
-  end
 
   def destroy
+    @birthday = Birthday.find(params.expect(:id))
     @birthday.destroy!
 
     flash[:success] = "Birthday was successfully deleted."
@@ -43,10 +31,6 @@ class BirthdaysController < ApplicationController
   end
 
   private
-
-    def set_birthday
-      @birthday = Birthday.find(params.expect(:id))
-    end
 
     def initialize_sort
       session[:birthday_sort_option] = params[:birthday_sort_option] || session[:birthday_sort_option] || "upcoming"

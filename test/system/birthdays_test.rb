@@ -2,44 +2,30 @@ require "application_system_test_case"
 
 class BirthdaysTest < ApplicationSystemTestCase
   setup do
-    @birthday = birthdays(:one)
+    @birthday = birthdays(:bob)
   end
 
   test "visiting the index" do
-    visit birthdays_url
-    assert_selector "h1", text: "Birthdays"
+    visit birthdays_path
+    assert_selector "h1", text: "Birthday"
   end
 
   test "should create birthday" do
-    visit birthdays_url
-    click_on "New birthday"
+    visit birthdays_path
+    click_on "Birthday 🎁 🎈"
 
     fill_in "Date", with: @birthday.date
     fill_in "First name", with: @birthday.first_name
     fill_in "Last name", with: @birthday.last_name
     click_on "Create Birthday"
 
-    assert_text "Birthday was successfully created"
-    click_on "Back"
-  end
-
-  test "should update Birthday" do
-    visit birthday_url(@birthday)
-    click_on "Edit this birthday", match: :first
-
-    fill_in "Date", with: @birthday.date
-    fill_in "First name", with: @birthday.first_name
-    fill_in "Last name", with: @birthday.last_name
-    click_on "Update Birthday"
-
-    assert_text "Birthday was successfully updated"
-    click_on "Back"
+    assert_text "Birthday was successfully added"
   end
 
   test "should destroy Birthday" do
-    visit birthday_url(@birthday)
-    click_on "Destroy this birthday", match: :first
+    visit birthdays_path
+    click_on "Delete Birthday", match: :first
 
-    assert_text "Birthday was successfully destroyed"
+    assert_text "Birthday was successfully deleted"
   end
 end
