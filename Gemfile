@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "minitest", "< 6.0.0"
+gem "googleauth", "~> 1.16"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -63,3 +65,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
