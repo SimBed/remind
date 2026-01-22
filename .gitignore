@@ -37,7 +37,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/config/remind_service_account.json
+/config/firebase_service_account.json
 
 
 /app/assets/builds/*
