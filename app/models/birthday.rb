@@ -29,4 +29,10 @@ class Birthday < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def age_last_birthday(on_date = Date.today)
+    age = on_date.year - date.year
+    age -= 1 if on_date < date + age.years
+    age
+  end
 end

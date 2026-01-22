@@ -1,6 +1,6 @@
 <div class="table-row" id="<%= dom_id birthday %>" >
-    <div class="first-name"><%= birthday.first_name %></div>
-    <div class="last-name"><%= birthday.last_name %></div>
+    <div class="full-name"><%= birthday.full_name %></div>
     <div class="birthday"><%= birthday.date.strftime('%d %b %Y') %></div>
+    <div class="age"><span class='age-badge'><%= birthday.age_last_birthday %></span></div>
     <div class="function"><%= link_to image_tag("dustbin.webp", class: "table_icon", alt: 'Delete Birthday'), birthday, data: { turbo_method: :delete } %></div>
 </div>

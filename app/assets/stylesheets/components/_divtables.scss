@@ -39,16 +39,8 @@
           box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       }
     
-      .first-name {
+      .full-name {
           flex: 2;
-          // font-weight: 600;
-          // color: #667eea;
-      }
-    
-      .last-name {
-          flex: 2;
-          // font-weight: 600;
-          // color: #764ba2;
       }
     
       .birthday {
@@ -57,9 +49,25 @@
           // font-weight: 500;
       }
     
+      .age {
+        flex: 1.0;
+      }
+
       .function {
         flex: 1.0;
       }
+
+      .age-badge {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.5em 1em;
+        border-radius: 2em;
+        font-weight: bold;
+        font-size: 0.8rem;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        text-align: center;
+      }
+
       @media (max-width: 480px) {
           h1 {
               font-size: 1.5rem;
