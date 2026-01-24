@@ -1,4 +1,5 @@
 class BirthdaysController < ApplicationController
+  VALID_SORTS = %w[first_name last_name age upcoming_birthday upcoming_midpoint]
   before_action :initialize_sort, only: :index
 
   def index
@@ -33,11 +34,13 @@ class BirthdaysController < ApplicationController
   private
 
     def initialize_sort
-      session[:birthday_sort_option] = params[:birthday_sort_option] || session[:birthday_sort_option] || "upcoming_birthday"
+      session[:birthday_sort_option] = params[:birthday_sort_option] || session[:birthday_sort_option]
     end
 
     def handle_sort
-      @birthdays = @birthdays.send("order_by_#{session[:birthday_sort_option]}")
+      sort_option = session[:birthday_sort_option]
+      sort_option = "upcoming_birthday" unless VALID_SORTS.include?(sort_option)
+      @birthdays = @birthdays.send("order_by_#{sort_option}")
     end
 
     def handle_response
