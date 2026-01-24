@@ -6,7 +6,8 @@
       <option value="first_name" <%="selected" if session[:birthday_sort_option] == "first_name"%> >first name</option>
       <option value="last_name" <%="selected" if session[:birthday_sort_option] == "last_name"%> >last name</option>
       <option value="age" <%="selected" if session[:birthday_sort_option] == "age"%> >age</option>
-      <option value="upcoming" <%="selected" if session[:birthday_sort_option] == "upcoming"%> >upcoming birthday</option>
+      <option value="upcoming_birthday" <%="selected" if session[:birthday_sort_option] == "upcoming_birthday"%> >upcoming birthday</option>
+      <option value="upcoming_midpoint" <%="selected" if session[:birthday_sort_option] == "upcoming_midpoint"%> >upcoming midpoint</option>
     </select>
   </div>
 </form>

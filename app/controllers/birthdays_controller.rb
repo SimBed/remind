@@ -2,7 +2,7 @@ class BirthdaysController < ApplicationController
   before_action :initialize_sort, only: :index
 
   def index
-    @birthdays = Birthday.all
+    @birthdays = BirthdayWithUpcoming.all
     handle_sort
     handle_response
   end
@@ -33,7 +33,7 @@ class BirthdaysController < ApplicationController
   private
 
     def initialize_sort
-      session[:birthday_sort_option] = params[:birthday_sort_option] || session[:birthday_sort_option] || "upcoming"
+      session[:birthday_sort_option] = params[:birthday_sort_option] || session[:birthday_sort_option] || "upcoming_birthday"
     end
 
     def handle_sort

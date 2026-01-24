@@ -4,13 +4,7 @@ task notify: :environment do
 end
 
 def notify_birthdays
-  today = Date.today
-
-  birthdays = Birthday.where(
-    "EXTRACT(month FROM date) = ? AND EXTRACT(day FROM date) = ?",
-    today.month,
-    today.day
-  )
+  birthdays = Birthday.today
 
   if birthdays.empty?
     puts "No birthdays today"

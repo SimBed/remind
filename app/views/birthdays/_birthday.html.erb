@@ -1,6 +1,7 @@
 <div class="table-row" id="<%= dom_id birthday %>" >
     <div class="full-name"><%= birthday.full_name %></div>
-    <div class="birthday"><%= birthday.date.strftime('%d %b %Y') %></div>
+    <div class="birthday"><span>🎁</span><%= birthday.date.strftime('%d %b %Y') %></div>
+    <div class="birthday"><span>🎯</span><%= birthday.upcoming_midpoint.strftime('%d %b') %></div>
     <div class="age"><span class='age-badge'><%= birthday.age_last_birthday %></span></div>
-    <div class="function"><%= link_to image_tag("dustbin.webp", class: "table_icon", alt: 'Delete Birthday'), birthday, data: { turbo_method: :delete } %></div>
+    <div class="function"><%= link_to image_tag("dustbin.webp", class: "table_icon", alt: 'Delete Birthday'), birthday_path(birthday.id), data: { turbo_method: :delete } %></div>
 </div>
