@@ -4,20 +4,15 @@ task notify: :environment do
 end
 
 def notify_birthdays
-  birthdays = Birthday.today
+  birthdays = BirthdayWithUpcoming.upcoming_birthday_today
+  midpoints = BirthdayWithUpcoming.upcoming_midpoint_today
 
-  if birthdays.empty?
-    puts "No birthdays today"
-    return # return works her becasue inside a method. If the content of notify methods was directly inside the rake task,
-    # we'd get unexpected return (LocalJumpError) because in a rake task, the task body is not a method.
-  end
-
-  names = birthdays.map(&:full_name).join(", ")
+  # return works here because we are inside a method. If (instead) the notify_birthdays code was directly inside the rake task,
+  # we'd get unexpected return (LocalJumpError) because in a rake task, the task body is not a method.
+  return if (birthdays + midpoints).empty?
 
   FirebaseNotifier.new.notify(
-    title: "🎂 Birthday Reminder",
-    body: "Today is #{names}'s birthday!"
+    title: "🎂🎉🎈🎁🎯 Reminder",
+    body: MessageWriter.new(birthdays, midpoints).write_message
   )
-
-  puts "Sent birthday notification for: #{names}"
 end
